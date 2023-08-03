@@ -35,3 +35,4 @@ app.get("/email", (request, response) => {
     response.send(status);
 
 });
+module.exports = app
