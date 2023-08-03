@@ -16,7 +16,7 @@ app.get("/status", (request, response) => {
    response.send(status);
 });
 
-app.get("/email", (request, response) => {
+app.get("/email",async (request, response) => {
     const recipient = request.query.Recipient;
     const subject = request.query.Subject;
     const message = request.query.Message;
@@ -24,7 +24,7 @@ app.get("/email", (request, response) => {
         Status: ""
     }
     try {
-        email.email(recipient, subject, message);
+        await email.email(recipient, subject, message);
         status.Status = "Email sent successfully!"
        
     }
